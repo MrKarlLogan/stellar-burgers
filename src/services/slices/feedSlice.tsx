@@ -1,0 +1,63 @@
+import { getFeedsApi, getOrdersApi } from '@api';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { TOrder, TOrdersData } from '@utils-types';
+
+export const fecthFeeds = createAsyncThunk('feed/fetchFeed', async () => {
+  const responce = await getFeedsApi();
+  return responce;
+});
+
+export const fecthOrders = createAsyncThunk('feed/fecthOrders', async () => {
+  const responce = await getOrdersApi();
+  return responce;
+});
+
+const feedSlice = createSlice({
+  name: 'feed',
+  initialState: {
+    feed: {} as TOrdersData | null,
+    orders: [] as TOrder[],
+    loading: false,
+    error: null as string | null
+  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fecthFeeds.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fecthFeeds.fulfilled, (state, action) => {
+        state.loading = false;
+        state.feed = action.payload;
+      })
+      .addCase(fecthFeeds.rejected, (state, action) => {
+        state.loading = false;
+        state.error =
+          action.error.message || 'Не удалось загрузить список заказов';
+      })
+      .addCase(fecthOrders.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fecthOrders.fulfilled, (state, action) => {
+        state.loading = false;
+        state.orders = action.payload;
+      })
+      .addCase(fecthOrders.rejected, (state, action) => {
+        state.loading = false;
+        state.error =
+          action.error.message || 'Не удалось загрузить список заказов';
+      });
+  },
+  selectors: {
+    getFeed: (state) => state.feed,
+    getOrders: (state) => state.orders,
+    getFeedOrders: (state) => state.feed?.orders || [],
+    getFeedLoading: (state) => state.loading
+  }
+});
+
+export default feedSlice.reducer;
+export const { getFeed, getOrders, getFeedOrders, getFeedLoading } =
+  feedSlice.selectors;
