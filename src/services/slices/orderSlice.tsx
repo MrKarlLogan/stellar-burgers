@@ -1,6 +1,7 @@
 import { getOrderByNumberApi, orderBurgerApi } from '@api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { TOrder } from '@utils-types';
+import { SLICE_NAMES } from '../../utils/config';
 
 export const fetchCreateOrder = createAsyncThunk(
   'order/create',
@@ -19,7 +20,7 @@ export const fetchOrderNumber = createAsyncThunk(
 );
 
 export const orderSlice = createSlice({
-  name: 'order',
+  name: SLICE_NAMES.ORDER,
   initialState: {
     orderRequest: false as boolean,
     createOrderModalData: null as TOrder | null,

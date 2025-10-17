@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { TConstructorIngredient, TIngredient } from '@utils-types';
 import uniqueID from '../../utils/generateId';
+import { SLICE_NAMES } from '../../utils/config';
 
 export const constructorSlice = createSlice({
-  name: 'burgerBuilder',
+  name: SLICE_NAMES.BURDER_CONSTRUCTOR,
   initialState: {
     bun: null as TIngredient | null,
     ingredients: [] as TConstructorIngredient[]

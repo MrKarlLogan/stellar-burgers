@@ -10,6 +10,7 @@ import {
   updateUserApi
 } from '@api';
 import { TUser } from '@utils-types';
+import { SLICE_NAMES } from '../../utils/config';
 
 export const registerUser = createAsyncThunk(
   'user/register',
@@ -51,7 +52,7 @@ export const logoutUser = createAsyncThunk('user/logout', async () => {
 });
 
 const userSlice = createSlice({
-  name: 'user',
+  name: SLICE_NAMES.USER,
   initialState: {
     user: null as TUser | null,
     isAuth: false,

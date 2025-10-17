@@ -5,19 +5,14 @@ import {
   createSlice
 } from '@reduxjs/toolkit';
 import { TOrder, TOrdersData } from '@utils-types';
+import { SLICE_NAMES } from '../../utils/config';
 
-export const fecthFeeds = createAsyncThunk('feed/fetchFeed', async () => {
-  const responce = await getFeedsApi();
-  return responce;
-});
+export const fecthFeeds = createAsyncThunk('feed/fetchFeed', getFeedsApi);
 
-export const fecthOrders = createAsyncThunk('feed/fecthOrders', async () => {
-  const responce = await getOrdersApi();
-  return responce;
-});
+export const fecthOrders = createAsyncThunk('feed/fecthOrders', getOrdersApi);
 
 const feedSlice = createSlice({
-  name: 'feed',
+  name: SLICE_NAMES.FEED,
   initialState: {
     feed: {} as TOrdersData | null,
     orders: [] as TOrder[],

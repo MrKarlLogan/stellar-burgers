@@ -1,24 +1,29 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TConstructorIngredient, TIngredient } from '@utils-types';
 import uniqueID from '../../utils/generateId';
+import { SLICE_NAMES } from '../../utils/config';
 
 export const buildingSlice = createSlice({
-  name: 'building',
+  name: SLICE_NAMES.BUILDING,
   initialState: {
     bun: null as TIngredient | null,
     ingredients: [] as TConstructorIngredient[]
   },
   reducers: {
-    addIngredient: (state, action) => {
-      const IngredientUniqueID = {
-        ...action.payload,
-        id: uniqueID(15)
-      };
-
-      if (action.payload.type === 'bun') {
-        state.bun = IngredientUniqueID;
-      } else {
-        state.ingredients.push(IngredientUniqueID);
+    addIngredient: {
+      prepare: (ingredient: TIngredient) => {
+        const IngredientUniqueID: TConstructorIngredient = {
+          ...ingredient,
+          id: uniqueID(15)
+        };
+        return { payload: IngredientUniqueID };
+      },
+      reducer: (state, action: PayloadAction<TConstructorIngredient>) => {
+        if (action.payload.type === 'bun') {
+          state.bun = action.payload;
+        } else {
+          state.ingredients.push(action.payload);
+        }
       }
     },
     removeIngredient: (state, action) => {
