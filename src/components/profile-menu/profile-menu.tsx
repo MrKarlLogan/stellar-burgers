@@ -9,8 +9,8 @@ export const ProfileMenu: FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    dispatch(logoutUser());
+  const handleLogout = async () => {
+    await dispatch(logoutUser());
     navigate('/login', { replace: true });
   };
 

@@ -1,5 +1,9 @@
 import { getFeedsApi, getOrdersApi } from '@api';
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import {
+  createAsyncThunk,
+  createSelector,
+  createSlice
+} from '@reduxjs/toolkit';
 import { TOrder, TOrdersData } from '@utils-types';
 
 export const fecthFeeds = createAsyncThunk('feed/fetchFeed', async () => {
@@ -53,11 +57,14 @@ const feedSlice = createSlice({
   selectors: {
     getFeed: (state) => state.feed,
     getOrders: (state) => state.orders,
-    getFeedOrders: (state) => state.feed?.orders || [],
     getFeedLoading: (state) => state.loading
   }
 });
 
 export default feedSlice.reducer;
-export const { getFeed, getOrders, getFeedOrders, getFeedLoading } =
-  feedSlice.selectors;
+export const { getFeed, getOrders, getFeedLoading } = feedSlice.selectors;
+
+export const getFeedOrders = createSelector(
+  [getFeed],
+  (feed) => feed?.orders || []
+);

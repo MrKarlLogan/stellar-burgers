@@ -1,9 +1,8 @@
 import { useLocation } from 'react-router-dom';
 import {
   getIsAuth,
-  getStatusAuthLoading,
-  getUser,
-  getUserData
+  getStatusLoading,
+  getUser
 } from '../../../services/slices/userSlice';
 import { useSelector } from '../../../services/store';
 import { Navigate } from 'react-router-dom';
@@ -16,7 +15,7 @@ type ProtectedRouteProps = {
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   const user = useSelector(getUser);
   const isAuth = useSelector(getIsAuth);
-  const loading = useSelector(getStatusAuthLoading);
+  const loading = useSelector(getStatusLoading);
   const location = useLocation();
 
   if (loading) return <Preloader />;

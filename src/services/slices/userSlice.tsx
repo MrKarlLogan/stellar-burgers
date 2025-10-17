@@ -133,11 +133,11 @@ const userSlice = createSlice({
     getUserData: (state) => state,
     getUser: (state) => state.user,
     getIsAuth: (state) => state.isAuth,
-    getStatusAuthLoading: (state) => state.loading
+    getStatusLoading: (state) => state.loading
   }
 });
 
 export const { setAuth } = userSlice.actions;
-export const { getUserData, getUser, getIsAuth, getStatusAuthLoading } =
+export const { getUserData, getUser, getIsAuth, getStatusLoading } =
   userSlice.selectors;
 export default userSlice.reducer;
