@@ -16,7 +16,7 @@ export const LoginUI: FC<LoginUIProps> = ({
   password,
   setPassword
 }) => (
-  <main className={styles.container}>
+  <main className={styles.container} data-cy='login-page'>
     <div className={`pt-6 ${styles.wrapCenter}`}>
       <h3 className='pb-6 text text_type_main-medium'>Вход</h3>
       <form

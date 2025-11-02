@@ -1,0 +1,105 @@
+{
+  "success": true,
+  "name": "Spicy метеоритный фалленианский бессмертный минеральный флюоресцентный бургер",
+  "order": {
+    "ingredients": [
+      {
+        "_id": "643d69a5c3f7b9001cfa093d",
+        "name": "Флюоресцентная булка R2-D3",
+        "type": "bun",
+        "proteins": 44,
+        "fat": 26,
+        "carbohydrates": 85,
+        "calories": 643,
+        "price": 988,
+        "image": "https://code.s3.yandex.net/react/code/bun-01.png",
+        "image_mobile": "https://code.s3.yandex.net/react/code/bun-01-mobile.png",
+        "image_large": "https://code.s3.yandex.net/react/code/bun-01-large.png",
+        "__v": 0
+      },
+      {
+        "_id": "643d69a5c3f7b9001cfa0940",
+        "name": "Говяжий метеорит (отбивная)",
+        "type": "main",
+        "proteins": 800,
+        "fat": 800,
+        "carbohydrates": 300,
+        "calories": 2674,
+        "price": 3000,
+        "image": "https://code.s3.yandex.net/react/code/meat-04.png",
+        "image_mobile": "https://code.s3.yandex.net/react/code/meat-04-mobile.png",
+        "image_large": "https://code.s3.yandex.net/react/code/meat-04-large.png",
+        "__v": 0
+      },
+      {
+        "_id": "643d69a5c3f7b9001cfa093f",
+        "name": "Мясо бессмертных моллюсков Protostomia",
+        "type": "main",
+        "proteins": 433,
+        "fat": 244,
+        "carbohydrates": 33,
+        "calories": 420,
+        "price": 1337,
+        "image": "https://code.s3.yandex.net/react/code/meat-02.png",
+        "image_mobile": "https://code.s3.yandex.net/react/code/meat-02-mobile.png",
+        "image_large": "https://code.s3.yandex.net/react/code/meat-02-large.png",
+        "__v": 0
+      },
+      {
+        "_id": "643d69a5c3f7b9001cfa0946",
+        "name": "Хрустящие минеральные кольца",
+        "type": "main",
+        "proteins": 808,
+        "fat": 689,
+        "carbohydrates": 609,
+        "calories": 986,
+        "price": 300,
+        "image": "https://code.s3.yandex.net/react/code/mineral_rings.png",
+        "image_mobile": "https://code.s3.yandex.net/react/code/mineral_rings-mobile.png",
+        "image_large": "https://code.s3.yandex.net/react/code/mineral_rings-large.png",
+        "__v": 0
+      },
+      {
+        "_id": "643d69a5c3f7b9001cfa0947",
+        "name": "Плоды Фалленианского дерева",
+        "type": "main",
+        "proteins": 20,
+        "fat": 5,
+        "carbohydrates": 55,
+        "calories": 77,
+        "price": 874,
+        "image": "https://code.s3.yandex.net/react/code/sp_1.png",
+        "image_mobile": "https://code.s3.yandex.net/react/code/sp_1-mobile.png",
+        "image_large": "https://code.s3.yandex.net/react/code/sp_1-large.png",
+        "__v": 0
+      },
+      {
+        "_id": "643d69a5c3f7b9001cfa0942",
+        "name": "Соус Spicy-X",
+        "type": "sauce",
+        "proteins": 30,
+        "fat": 20,
+        "carbohydrates": 40,
+        "calories": 30,
+        "price": 90,
+        "image": "https://code.s3.yandex.net/react/code/sauce-02.png",
+        "image_mobile": "https://code.s3.yandex.net/react/code/sauce-02-mobile.png",
+        "image_large": "https://code.s3.yandex.net/react/code/sauce-02-large.png",
+        "__v": 0
+      }
+    ],
+    "_id": "6905d220a64177001b31c39a",
+    "owner": {
+      "name": "Игорь",
+      "email": "igor29108@list.ru",
+      "createdAt": "2025-10-15T13:20:15.501Z",
+      "updatedAt": "2025-10-21T12:46:20.222Z"
+    },
+    "status": "done",
+    "name": "Spicy метеоритный фалленианский бессмертный минеральный флюоресцентный бургер",
+    "createdAt": "2025-11-01T09:25:52.363Z",
+    "updatedAt": "2025-11-01T09:25:52.602Z",
+    "number": 92877,
+    "price": 6589
+  }
+}
