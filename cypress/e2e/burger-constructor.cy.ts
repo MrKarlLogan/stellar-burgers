@@ -1,6 +1,5 @@
 import type { TIngredient } from '../../src/utils/types';
 const API = Cypress.env('BURGER_API_URL');
-const localhost = 'http://localhost:4000';
 
 describe('Тест бургер-конструктора (сценарий для авторизованного пользователя)', () => {
   beforeEach(() => {
@@ -14,15 +13,16 @@ describe('Тест бургер-конструктора (сценарий дл�
       fixture: 'order.json'
     }).as('createOrder');
 
-    window.localStorage.setItem('accessToken', 'test-access-token');
+    cy.setCookie('accessToken', 'test-access-token');
     window.localStorage.setItem('refreshToken', 'test-refresh-token');
 
-    cy.visit(localhost);
+    cy.visit('/');
     cy.wait('@getIngredients');
     cy.wait('@getUser');
   });
 
   afterEach(() => {
+    cy.clearCookies();
     cy.clearLocalStorage();
   });
 
@@ -61,9 +61,26 @@ describe('Тест бургер-конструктора (сценарий дл�
       cy.contains('Состав ингредиента').should('exist');
     });
 
+    it('Проверка отображения данных именно того ингредиента, по которому кликнули', () => {
+      cy.get('[data-cy="ingredient-details-link"]')
+        .contains('Флюоресцентная булка R2-D3')
+        .click();
+
+      cy.get('[data-cy="modal"]').should('be.visible');
+      cy.contains('Флюоресцентная булка R2-D3').should('exist');
+      cy.contains('988').should('exist');
+    });
+
     it('Закрытие модального окна по кнопке закрытия', () => {
       cy.get('[data-cy="ingredient-details-link"]').first().click();
       cy.get('[data-cy="modal-close-button"]').click();
+      cy.get('[data-cy="modal"]').should('not.exist');
+    });
+
+    it('Закрытие модального окна по ESC', () => {
+      cy.get('[data-cy="ingredient-details-link"]').first().click();
+      cy.get('[data-cy="modal"]').should('be.visible');
+      cy.get('body').type('{esc}', { force: true });
       cy.get('[data-cy="modal"]').should('not.exist');
     });
 
@@ -134,7 +151,7 @@ describe('Тест бургер-конструктора (альтернатив
       fixture: 'ingredients.json'
     }).as('getIngredients');
 
-    cy.visit(localhost);
+    cy.visit('/');
     cy.wait('@getIngredients');
   });
 
