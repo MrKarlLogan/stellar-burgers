@@ -58,7 +58,7 @@ export const orderSlice = createSlice({
         state.viewOrderModalData = action.payload;
       })
       .addCase(fetchOrderNumber.rejected, (state, action) => {
-        state.error = action.error.message || 'Ошибка при оформлении заказа';
+        state.error = action.error.message || 'Заказ не найден';
       });
   },
   selectors: {
